@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 
+import DataError from "../../components/DataError";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
 import "./index.scss";
@@ -40,8 +41,6 @@ function CharacterPage(props: any) {
   const { data, loading, error } = useQuery(GET_CHARACTER, {
     variables: { charId },
   });
-
-  if (error) return <p>ERROR</p>;
 
   return (
     <>
@@ -107,7 +106,10 @@ function CharacterPage(props: any) {
             </a>
           </div>
         ) : (
-          <Loading display={loading} />
+          <>
+            <DataError display={error} />
+            <Loading display={loading} />
+          </>
         )}
       </main>
     </>
