@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 
 import Header from "../../components/Header";
+import DataError from "../../components/DataError";
 import Loading from "../../components/Loading";
 
 import "./index.scss";
@@ -33,12 +34,9 @@ export const GET_CHARACTERS = gql`
 function CharactersListPage() {
   const { data, loading, error, fetchMore } = useQuery(GET_CHARACTERS);
 
-  if (error) return <p>ERROR</p>;
-
   return (
     <>
       <Header />
-
       <main className="row back-image2 text-center h-100">
         {data ? (
           <div className="content">
@@ -102,7 +100,10 @@ function CharactersListPage() {
             </div>
           </div>
         ) : (
-          <Loading display={loading} />
+          <>
+            <DataError display={error} />
+            <Loading display={loading} />
+          </>
         )}
       </main>
     </>
