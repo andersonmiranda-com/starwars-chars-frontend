@@ -15,3 +15,9 @@ code {
 .table {
   color: #d1d1d1 !important;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9em !important;
+  }
+}

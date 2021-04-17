@@ -14,3 +14,9 @@
 h1.char-title {
   font-size: 3rem;
 }
+
+@media (max-width: 768px) {
+  h1.char-title {
+    font-size: 2em;
+  }
+}
