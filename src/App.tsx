@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 
-import Index from "./views/Index";
+import Home from "./views/Home";
 import CharactersList from "./views/CharactersList";
 import Character from "./views/Character";
 
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/index" render={(props: any) => <Index {...props} />} />
+          <Route path="/index" render={(props: any) => <Home {...props} />} />
           <Route
             path="/characters"
             render={(props: any) => <CharactersList {...props} />}

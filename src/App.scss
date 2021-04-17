@@ -1,5 +1,9 @@
+@import "./base";
+
 .App {
-  background-color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  color: $text-color1;
+  background-color: $back-color;
   position: absolute;
   top: 0;
   bottom: 0;
