@@ -41,7 +41,7 @@ function CharactersListPage() {
 
       <main className="row back-image2 text-center h-100">
         {data ? (
-          <content>
+          <div className="content">
             <h1 className="char-title">Star Wars Characters</h1>
             <table className="table mt-4">
               <thead>
@@ -54,7 +54,7 @@ function CharactersListPage() {
               <tbody>
                 {data.charactersList &&
                   data.charactersList.characters &&
-                  data.charactersList.characters.map((char) => (
+                  data.charactersList.characters.map((char: any) => (
                     <tr key={char.id}>
                       <td>
                         <Link to={`/character/${char.id}`}>{char.name}</Link>
@@ -65,42 +65,42 @@ function CharactersListPage() {
                   ))}
               </tbody>
               <tfoot>
-                <td colspan="3">
-                  <button
-                    className="btn btn-danger btn-sm float-left"
-                    disabled={
-                      !(data.charactersList && data.charactersList.previous)
-                    }
-                    onClick={async () => {
-                      await fetchMore({
-                        variables: {
-                          page: parseInt(data.charactersList.previous),
-                        },
-                      });
-                    }}
-                  >
-                    Previous
-                  </button>
-
-                  <button
-                    className="btn btn-danger btn-sm float-right"
-                    disabled={
-                      !(data.charactersList && data.charactersList.next)
-                    }
-                    onClick={async () => {
-                      await fetchMore({
-                        variables: {
-                          page: parseInt(data.charactersList.next),
-                        },
-                      });
-                    }}
-                  >
-                    Next
-                  </button>
-                </td>
+                <td colSpan={3}></td>
               </tfoot>
             </table>
-          </content>
+
+            <div>
+              <button
+                className="btn btn-danger btn-sm float-left"
+                disabled={
+                  !(data.charactersList && data.charactersList.previous)
+                }
+                onClick={async () => {
+                  await fetchMore({
+                    variables: {
+                      page: parseInt(data.charactersList.previous),
+                    },
+                  });
+                }}
+              >
+                Previous
+              </button>
+
+              <button
+                className="btn btn-danger btn-sm float-right"
+                disabled={!(data.charactersList && data.charactersList.next)}
+                onClick={async () => {
+                  await fetchMore({
+                    variables: {
+                      page: parseInt(data.charactersList.next),
+                    },
+                  });
+                }}
+              >
+                Next
+              </button>
+            </div>
+          </div>
         ) : (
           <Loading display={loading} />
         )}

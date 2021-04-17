@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 
-import Home from "./views/Home";
-import CharactersList from "./views/CharactersList";
-import Character from "./views/Character";
+import Home from "./views/Home/index";
+import CharactersList from "./views/CharactersList/index";
+import Character from "./views/Character/index";
 
 function App() {
   return (

@@ -31,8 +31,12 @@ export const GET_CHARACTER = gql`
   ${CHARACTER_DATA}
 `;
 
-function CharacterPage(props) {
-  let { charId } = useParams();
+interface ParamTypes {
+  charId: string;
+}
+
+function CharacterPage(props: any) {
+  let { charId } = useParams<ParamTypes>();
   const { data, loading, error } = useQuery(GET_CHARACTER, {
     variables: { charId },
   });
@@ -44,7 +48,7 @@ function CharacterPage(props) {
       <Header />
       <main className="row back-image2 text-center h-100">
         {data ? (
-          <content>
+          <div className="content">
             <h1 className="char-title mb-4">{data.character.name}</h1>
             <table className="table mt-4">
               <tbody>
@@ -83,14 +87,14 @@ function CharacterPage(props) {
                 <tr>
                   <td className="char-label">Films</td>
                   <td>
-                    {data.character.films.map((film) => {
+                    {data.character.films.map((film: any) => {
                       return <p>{film}</p>;
                     })}
                   </td>
                 </tr>
               </tbody>
               <tfoot>
-                <td colspan="2"></td>
+                <td colSpan={2}></td>
               </tfoot>
             </table>
 
@@ -101,7 +105,7 @@ function CharacterPage(props) {
             >
               Back
             </a>
-          </content>
+          </div>
         ) : (
           <Loading display={loading} />
         )}
