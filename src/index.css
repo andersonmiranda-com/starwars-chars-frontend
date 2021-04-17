@@ -1,7 +1,7 @@
 body {
   margin: 0;
   color: #d1d1d1 !important;
-  background-color: black;
+  background-color: black !important;
   font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
