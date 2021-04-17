@@ -1,12 +1,12 @@
 header {
-  background-color: #d1dcdd;
+  background-color: #fafafa;
 
   .navbar-light {
     border-bottom: solid 1px #e9ecf4;
 
     .navbar-brand {
       img {
-        height: 26px;
+        height: 50px;
       }
     }
 
@@ -14,7 +14,7 @@ header {
       .nav-link {
         padding: 30px 15px;
         font-size: 16px;
-        font-weight: bold;
+        font-weight: normal;
         color: #030303;
       }
     }
